@@ -35,3 +35,11 @@ logs/
 
 # Keep Python scripts
 !*.py
+
+# Keep Jupyter Notebook files
+!*.ipynb
+
+*.hdf5
+
+# Keep Python scripts
+!*.py
