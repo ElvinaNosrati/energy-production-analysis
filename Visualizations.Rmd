@@ -1,0 +1,94 @@
+---
+title: "Capstone"
+output:
+  pdf_document: default
+  html_document: default
+date: "2025-02-11"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(readxl)
+library(lubridate)
+library(tidyr)
+```
+
+```{r}
+df <- read_excel("Amberd.xlsx")
+
+# Convert Date column to Date type
+df$Date <- as.Date(df$Date)
+
+# Remove NA values
+df <- df %>% drop_na(`Energy Production (kWh)`)
+```
+
+```{r}
+# Plot 1: Time Series of Energy Production
+ggplot(df, aes(x = Date, y = `Energy Production (kWh)`, color = Station)) +
+  geom_line(alpha = 0.5) +
+  labs(title = "Time Series of Energy Production",
+       x = "Date",
+       y = "Energy Production (kWh)") +
+  theme_minimal()
+```
+
+```{r}
+# Plot 2: Average Energy Production by Hour
+df %>% 
+  group_by(`Hour Index`) %>% 
+  summarise(avg_production = mean(`Energy Production (kWh)`, na.rm = TRUE)) %>% 
+  ggplot(aes(x = `Hour Index`, y = avg_production)) +
+  geom_line(color = "blue") +
+  geom_point(color = "red") +
+  labs(title = "Average Energy Production by Hour",
+       x = "Hour Index",
+       y = "Avg Energy Production (kWh)") +
+  theme_minimal()
+```
+
+```{r}
+# Extract Month
+df$Month <- month(df$Date, label = TRUE)
+
+# Plot 3: Average Energy Production by Month
+df %>% 
+  group_by(Month) %>% 
+  summarise(avg_production = mean(`Energy Production (kWh)`, na.rm = TRUE)) %>% 
+  ggplot(aes(x = Month, y = avg_production, fill = Month)) +
+  geom_bar(stat = "identity", color = "white") +
+  labs(title = "Average Energy Production by Month",
+       x = "Month",
+       y = "Avg Energy Production (kWh)") +
+  theme_minimal()
+```
+
+
+```{r}
+df$Year <- year(df$Date)  # Extracts the year
+df$Month <- month(df$Date, label = TRUE)  # Extracts the month
+
+df %>%
+  group_by(Year, Month) %>%  # Groups by both Year and Month
+  summarise(avg_production = mean(`Energy Production (kWh)`, na.rm = TRUE)) %>%
+  ggplot(aes(x = Month, y = avg_production, group = Year, color = as.factor(Year))) +
+  geom_line(size = 1) +  
+  geom_point() +  
+  labs(title = "Average Energy Production by Month (Each Year Separately)",
+       x = "Month",
+       y = "Avg Energy Production (kWh)",
+       color = "Year") +
+  theme_minimal()
+
+```
+
+```{r}
+
+```
+
+

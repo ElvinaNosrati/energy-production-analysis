@@ -1,0 +1,7 @@
+"0","# Plot 3: Distribution of Energy Production per Station"
+"0","ggplot(df, aes(x = `Energy Production (kWh)`, fill = Station)) +"
+"0","  geom_histogram(bins = 50, alpha = 0.7, position = ""identity"") +"
+"0","  labs(title = ""Distribution of Energy Production per Station"","
+"0","       x = ""Energy Production (kWh)"","
+"0","       y = ""Count"") +"
+"0","  theme_minimal()"

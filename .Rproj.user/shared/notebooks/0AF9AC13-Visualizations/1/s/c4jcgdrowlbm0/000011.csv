@@ -1,0 +1,7 @@
+"0","# Plot 1: Time Series of Energy Production"
+"0","ggplot(df, aes(x = Date, y = `Energy Production (kWh)`, color = Station)) +"
+"0","  geom_line(alpha = 0.5) +"
+"0","  labs(title = ""Time Series of Energy Production"","
+"0","       x = ""Date"","
+"0","       y = ""Energy Production (kWh)"") +"
+"0","  theme_minimal()"

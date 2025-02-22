@@ -1,0 +1,60 @@
+---
+title: "Capstone"
+output: html_document
+date: "2025-02-11"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(readr)
+library(tidyr)
+```
+
+```{r}
+df <- read_excel("Amberd.xlsx")
+
+# Convert Date column to Date type
+df$Date <- as.Date(df$Date)
+
+# Remove NA values
+df <- df %>% drop_na(`Energy Production (kWh)`)
+```
+
+```{r}
+# Plot 1: Time Series of Energy Production
+ggplot(df, aes(x = Date, y = `Energy Production (kWh)`, color = Station)) +
+  geom_line(alpha = 0.5) +
+  labs(title = "Time Series of Energy Production",
+       x = "Date",
+       y = "Energy Production (kWh)") +
+  theme_minimal()
+```
+
+```{r}
+# Plot 2: Average Energy Production by Hour
+df %>% 
+  group_by(`Hour Index`) %>% 
+  summarise(avg_production = mean(`Energy Production (kWh)`, na.rm = TRUE)) %>% 
+  ggplot(aes(x = `Hour Index`, y = avg_production)) +
+  geom_line(color = "blue") +
+  geom_point(color = "red") +
+  labs(title = "Average Energy Production by Hour",
+       x = "Hour Index",
+       y = "Avg Energy Production (kWh)") +
+  theme_minimal()
+```
+
+```{r}
+# Plot 3: Distribution of Energy Production per Station
+ggplot(df, aes(x = `Energy Production (kWh)`, fill = Station)) +
+  geom_histogram(bins = 50, alpha = 0.7, position = "identity") +
+  labs(title = "Distribution of Energy Production per Station",
+       x = "Energy Production (kWh)",
+       y = "Count") +
+  theme_minimal()
+```
