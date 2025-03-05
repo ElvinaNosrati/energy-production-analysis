@@ -43,3 +43,8 @@ logs/
 
 # Keep Python scripts
 !*.py
+
+# Allow specific CSV files
+!STL_Energy_Production.csv
+!HP_Energy_Production.csv
+
