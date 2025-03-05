@@ -7,3 +7,4 @@ setuptools==75.8.2
 six==1.17.0
 tzdata==2025.1
 wheel==0.45.1
+openpyxl
