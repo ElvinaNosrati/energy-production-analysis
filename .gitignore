@@ -26,7 +26,9 @@ logs/
 *.tmp
 .cache/
 
-# Ignore large data files (add specific dataset names if needed)
+
+# Ignore all CSV files except the necessary ones
+!processed_data/*.csv
 *.csv
 *.xlsx
 *.json
