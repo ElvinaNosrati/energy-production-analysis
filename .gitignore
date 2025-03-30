@@ -28,7 +28,7 @@ logs/
 
 
 # Ignore all CSV files except the necessary ones
-!processed_data/*.csv
+!processed_data/**/*.csv
 *.csv
 *.xlsx
 *.json
