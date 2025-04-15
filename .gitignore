@@ -27,13 +27,14 @@ logs/
 .cache/
 
 
-# Ignore all CSV files except the necessary ones
-!processed_data/**/*.csv
-*.csv
+# Ignore all CSVs exceptthose in processed_data
 *.xlsx
 *.json
 *.parquet
 *.hdf5
+
+# Track CSVs in processed_data
+!processed_data/**/*.csv
 
 # Keep Python scripts
 !*.py
