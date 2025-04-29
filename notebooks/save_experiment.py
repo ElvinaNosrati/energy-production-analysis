@@ -24,7 +24,8 @@ def save_experiment(
     metrics_df.to_csv(station_dir / "metrics.csv", index=False)
     
     for name, fig in train_figs.items():
-        fig.savefig(figures_dir / f"{name}.png", dpi=150)
+        fig.savefig(figures_dir / f"{name}.png", dpi=150, bbox_inches='tight')
+
     
     for name, fig in pred_figs.items():
         fig.savefig(predictions_dir / f"{name}.png", dpi=150)
