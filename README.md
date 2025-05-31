@@ -16,7 +16,7 @@
 ### **Notebooks**
 - `notebooks/calculate_water_flow.ipynb` → Jupyter notebook for calculating water flow.
 - `notebooks/ts_forecast.ipynb` → Time-series forecasting analysis.
--` notebooks/ts_decomp.ipynb`→ Seasonal decomposition using STL and HP filters.
+- ` notebooks/ts_decomp.ipynb`→ Seasonal decomposition using STL and HP filters.
 - `notebooks/experiments_1.ipynb`→ ML/DL  experiments on Station 1.
 - `notebooks/experiments_2.ipynb`→ ML/DL  experiments on Station 2.
 - `notebooks/experiments_3.ipynb`→ ML/DL  experiments on Station 3.
