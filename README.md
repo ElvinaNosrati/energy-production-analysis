@@ -11,7 +11,7 @@
 
 ### **Processed Data**
 
-- `processed_data/energy_production_with_engineered_features.csv` → HP energy data with engineered features.
+- `processed_data/energy_production_with_engineered_features.csv` → Energy data with engineered features.
 
 ### **Notebooks**
 - `notebooks/calculate_water_flow.ipynb` → Jupyter notebook for calculating water flow.
