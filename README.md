@@ -1,4 +1,4 @@
-## 📂 Project Structure
+##  Project Structure
 ### **Data**
 - `data/Amberd.xlsx` → Visualization data for hydropower analysis.
 - `data/HP_Energy_Production.csv` → Energy production data for the HP model.
@@ -11,22 +11,26 @@
 
 ### **Processed Data**
 
-- `processed_data/hp_energy_production_with_engineered_features.csv` → HP energy data with engineered features.
-- `processed_data/stl_energy_production_with_engineered_features.csv` → STL energy data with engineered features.
+- `processed_data/energy_production_with_engineered_features.csv` → HP energy data with engineered features.
 
 ### **Notebooks**
 - `notebooks/calculate_water_flow.ipynb` → Jupyter notebook for calculating water flow.
-- `notebooks/hydropower_efficiency_analysis.ipynb` → Main notebook for efficiency analysis and ML modeling.
-- `notebooks/seasonality_removal.ipynb` → Notebook for handling and removing seasonality in data.
-- `notebooks/main.ipynb` → Notebook for corr/ ML models/ DL models
+- `notebooks/ts_forecast.ipynb` → Time-series forecasting analysis.
+-` notebooks/ts_decomp.ipynb`→ Seasonal decomposition using STL and HP filters.
+- `notebooks/experiments_1.ipynb`→ ML/DL  experiments on Station 1.
+- `notebooks/experiments_2.ipynb`→ ML/DL  experiments on Station 2.
+- `notebooks/experiments_3.ipynb`→ ML/DL  experiments on Station 3.
+- `notebooks/experiments_global.ipynb`→  Combined forecasting experiments using data from all stations
 - `notebooks/feature_engineering.ipynb` → Notebook for generating and testing new features.
+- `notebooks/save_experiments.py` → Notebook for a saving function.
+
 
 ### **R Scripts**
 - `r_scripts/Visualizations.Rmd` → R Markdown file for generating visualizations.
 - `r_scripts/Capstone.Rproj` → Initial project setup for R-based analysis.
 
 ### **Visualizations**
-- `visualizations/Visualizations.pdf` → Pre-generated visualizations from the R Markdown file.
+- `visualizations/Visualizations.pdf` → Pre-generated visualizations from the R Markdown file, including feature importance and correlation plots.
 
 ### **Other Files**
 - `requirements.txt` → Dependencies needed to run the project.
